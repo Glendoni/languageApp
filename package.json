@@ -13,7 +13,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "modernizr": "modernizr -c modernizr-config.json -d src/modernizr.js",
-    "updated-webdriver": "node ./node_modules/protractor/bin/webdriver-manager update"
+    "updated-webdriver": "node ./node_modules/protractor/bin/webdriver-manager update",
+    "postinstall": "ng build --aot --prod"
   },
   "private": true,
   "napa": {
