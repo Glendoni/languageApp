@@ -16,6 +16,10 @@
     "updated-webdriver": "node ./node_modules/protractor/bin/webdriver-manager update",
     "postinstall": "ng build --aot --prod"
   },
+   "engines": {
+    "node": "8.11.2",
+    "npm": "5.6.0"
+  },
   "private": true,
   "napa": {
     "flot": "flot/flot#v0.8.3",
