@@ -29,7 +29,7 @@
                         <div class="cardbox-title text-center">Reason For Joining the Club </div>
                     </div>
                             <div class="form-group">
-                                <div [formArrayName]="'items'" [class.invalid]="!regForm.controls.selectedItems.valid">
+                                <div [formArrayName]="items" [class.invalid]="!regForm.controls.selectedItems.valid">
                                     <div *ngFor="let control of regForm.controls.items.controls; let i = index;" [formGroup]="control" class="form-check form-check-inline">
                                       <input type="checkbox" formControlName="checkbox"  (click)="onClickMe($event)" id="{{ control.controls.id.value }}">
                                       <label attr.for="{{ control.controls.id.value }}"><span>{{ control.controls.text.value }}</span></label>
