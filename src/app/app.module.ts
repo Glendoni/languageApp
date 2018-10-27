@@ -15,6 +15,7 @@ import { RoutesModule } from './routes/routes.module';
 
 import { AuthGuard } from './_guards';
 import { JwtInterceptor } from './_helpers';
+import { AlertComponent } from './_directives';
 import { AlertService, AuthenticationService, UserService } from './_services';
 //import { HomeComponent } from './home/home.component';
 
@@ -25,7 +26,8 @@ export function createTranslateLoader(http: HttpClient) {
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        AlertComponent
     ],
     imports: [
         HttpClientModule,
