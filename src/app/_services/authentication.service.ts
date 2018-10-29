@@ -1,4 +1,4 @@
-﻿import { Injectable } from '@angular/core';
+﻿import { Injectable, isDevMode } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -8,7 +8,13 @@ export class AuthenticationService {
     constructor(private http: HttpClient) { }
 
     login(email: string, password: string) {
-        return this.http.post('http://localhost:8000/api/auth/login?email=' +
+
+        if (isDevMode()) {
+      console.log('👋 Development!');
+    } else {
+      console.log('💪 Production!');
+    }
+        return this.http.post('http://localhost:8000/api/login?email=' +
                           email + '&password=' +
                           password, JSON.stringify({ email: email, password : password }))
             .pipe(map((res:any) => {
