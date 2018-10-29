@@ -10,11 +10,13 @@ export class AuthenticationService {
     login(email: string, password: string) {
 
         if (isDevMode()) {
-      console.log('👋 Development!');
+        console.log('👋 Development!');
+        const url = 'http://localhost:8000';
     } else {
-      console.log('💪 Production!');
+        console.log('💪 Production!');
+        const url = 'https://youteachserver.herokuapp.com/';
     }
-        return this.http.post('http://localhost:8000/api/login?email=' +
+        return this.http.post(url+'/api/login?email=' +
                           email + '&password=' +
                           password, JSON.stringify({ email: email, password : password }))
             .pipe(map((res:any) => {
