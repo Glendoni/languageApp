@@ -12,7 +12,7 @@ import { User, Language, Search, NativeOnline , ProfileObject, OfflineObject} fr
 export class UserService {
     constructor(private http: HttpClient ) { }
     
-      url = 'http://127.0.0.1:8000';
+      url = localStorage.getItem('host_api_url');
 
     
    
@@ -50,7 +50,7 @@ export class UserService {
     
     getUserProfile(id: number): Observable<ProfileObject[]>{
         
-         return this.http.get<ProfileObject[]>(`${this.url}/api/auth/users/`+id); 
+         return this.http.get<ProfileObject[]>(this.url+'/api/auth/users/'+id); 
     }
     
     getAll() {
@@ -75,13 +75,17 @@ export class UserService {
     
     getLanguage(){
         
+         return this.http.get<Language[]>(this.url+'/api/user');
          return this.http.get<Language[]>(this.url+'/api/lang');
+
+
     }
     searchLanguage(term: string): Observable<Search[]> {
     if (!term.trim()) {
       // if not search term, return empty hero array.
       return of([]);
     }
+     return this.http.get<Language[]>(this.url+'/api/user');
     return this.http.get<Search[]>(`${this.url}/api/auth/search_lang?search_lang=${term}`).pipe(
      
         

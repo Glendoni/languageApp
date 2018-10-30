@@ -14,7 +14,7 @@ export class AuthenticationService {
         var url = 'http://localhost:8000';
     } else {
         console.log('💪 Production!');
-        var url = 'https://youteachserver.herokuapp.com/';
+        var url = 'https://youteachserver.herokuapp.com';
     }
         return this.http.post(url+'/api/login?email=' +
                           email + '&password=' +
@@ -27,6 +27,7 @@ export class AuthenticationService {
                
                     // store username and jwt token in local storage to keep user logged in between page refreshes
                     localStorage.setItem('currentUser', JSON.stringify({ email:email, token: res.access_token }));
+                    localStorage.setItem('host_api_url',url);
                 }
             }));
     }
