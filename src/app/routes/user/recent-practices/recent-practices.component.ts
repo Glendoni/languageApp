@@ -20,6 +20,10 @@ recently_practices: any;
               .getRecentlyPracticed()
               .subscribe(data =>
                 this.recently_practices = data);
+
+              this.userService
+              .getCheck()
+              .subscribe();
     
   }
     

@@ -75,7 +75,7 @@ export class UserService {
     
     getLanguage(){
         
-         return this.http.get<Language[]>(this.url+'/api/user');
+       
          return this.http.get<Language[]>(this.url+'/api/lang');
 
 
@@ -85,7 +85,7 @@ export class UserService {
       // if not search term, return empty hero array.
       return of([]);
     }
-     return this.http.get<Language[]>(this.url+'/api/user');
+
     return this.http.get<Search[]>(`${this.url}/api/auth/search_lang?search_lang=${term}`).pipe(
      
         
@@ -124,6 +124,11 @@ export class UserService {
     getRecentlyPracticed(){
         
          return this.http.get(`${this.url}/api/auth/recent_practices`); 
+    }
+
+    getCheck(){
+
+         return this.http.get(this.url+'/api/user');
     }
 
 }  
