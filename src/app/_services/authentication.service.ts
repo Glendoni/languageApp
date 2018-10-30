@@ -8,13 +8,13 @@ export class AuthenticationService {
     constructor(private http: HttpClient) { }
 
     login(email: string, password: string) {
-
+    var url = 'http://localhost:8000';
         if (isDevMode()) {
         console.log('👋 Development!');
-        const url = 'http://localhost:8000';
+        var url = 'http://localhost:8000';
     } else {
         console.log('💪 Production!');
-        const url = 'https://youteachserver.herokuapp.com/';
+        var url = 'https://youteachserver.herokuapp.com/';
     }
         return this.http.post(url+'/api/login?email=' +
                           email + '&password=' +
